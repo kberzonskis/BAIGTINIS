@@ -1,0 +1,5 @@
+.min-page-height {
+  min-height: calc(100vh - 13.6rem);
+}
+
+
