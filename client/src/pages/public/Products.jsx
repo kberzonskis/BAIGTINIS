@@ -1,4 +1,6 @@
+import {ProductCard} from '../../components/ProductCard'
 import { Link } from 'react-router';
+import { PublicPageTitle } from '../../components/PublicPageTitle';
 
 export function ProductsPage() {
     const ProductsData = [
@@ -18,31 +20,27 @@ export function ProductsPage() {
 
     
     return (
-        <main className='object-fit-lg-contain'>
-            <div className="container col-xxl-8 px-4">
-                <div className="row">
-                    <h1 className="col-12 display-1 mb-5">Products</h1>
-                </div>
-           
-
-            <div className="container px-4 py-5" id="featured-3">
-                <div className="row g-4 py-5 row-cols-1 row-cols-lg-3">
-                    {
-                        ProductsData.map(products => (
-                            <div className="container px-4">
-                                <h3 className="fs-2 text-body-emphasis">{products.title}</h3>
-                                <p>{products.description}</p>
-                                <p>Products count: {products.itemsCount}</p>
-                                <Link to={'/categories/' + products.urlSlug} className="icon-link">Read more</Link>
-                            </div>
-                        ))
-                    }
+       <main className='min-page-height'>
+            <PublicPageTitle title='Diversities of coffee' />
+                <div className="container px-4" id="featured-3">
+                    <div className="row g-4 row-cols-1 row-cols-lg-3">
+                        {ProductsData.map(product => <ProductCard key={product.title} product={product} />)}
                 </div>
             </div>
-            </div> 
         </main>
     );
 }
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 <div class="col">

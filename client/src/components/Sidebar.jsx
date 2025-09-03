@@ -41,8 +41,8 @@ export function Sidebar() {
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link d-flex align-items-center gap-2 link-dark link-offset-2 " to="/admin/products/progres">
-                                Products In Progress
+                            <Link className="nav-link d-flex align-items-center gap-2 link-dark link-offset-2 " to="/admin/products/draft">
+                                Draft
                             </Link>
                         </li>
                     </ul>

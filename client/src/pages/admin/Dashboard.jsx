@@ -1,8 +1,12 @@
-import { AdminPageTitle } from "../../components/AdminPageTitle";
+import { useContext } from "react";
+import { UserContext } from "../../context/user/UserContext";
+
 export function AdminDasboardPage() {
+    const { email } = useContext(UserContext);
+
     return (
         <main>
-          <AdminPageTitle title="WELCOME TO DASHBOARD" /> 
+            <p>Email: {email}</p>
         </main>
     );
 }

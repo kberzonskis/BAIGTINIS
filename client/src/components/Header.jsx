@@ -1,8 +1,10 @@
 import { Link, NavLink } from "react-router";
 import logo from '../assets/th.webp';
+import { useContext } from "react";
+import { UserContext } from "../context/user/UserContext";
 
 export function Header() {
-     const isLoggedIn = false;
+      const { isLoggedIn } = useContext(UserContext);
     return (
 
         <header className="p-4 text-bg-warning rounded-2 ">

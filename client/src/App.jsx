@@ -7,23 +7,29 @@ import { RegisterPage } from './pages/public/Register';
 import { LoginPage } from './pages/public/Login';
 import { AdminDasboardPage } from './pages/admin/Dashboard';
 import { AdminLayout } from './templates/AdminLayout';
-
+import { ProductInnerPage } from './pages/public/ProductsInner';
 import { AdminProductsAllPage } from './pages/admin/products/ProductsAll';
 import { AdminProductNewPage } from './pages/admin/products/ProductsNew';
 import { AdminProductViewPage } from './pages/admin/products/ProductsView';
 import { AdminProductEditPage } from './pages/admin/products/ProductsEdit';
 import { AdminProductsPublishedPage } from './pages/admin/products/ProductsPublished';
-import { AdminProductsProgresPage } from './pages/admin/products/ProductsProgres';
+import { AdminProductsDraftPage } from './pages/admin/products/ProductsDraft';
+import { LogoutPage } from './pages/public/Logout';
+import { UserContextWrapper } from './context/user/UserContextWrapper';
 
 export function App() {
 return (
-<BrowserRouter>
+  <UserContextWrapper>
+     <BrowserRouter>
   <Routes>
     <Route element={<PublicLayout />}>
-    <Route path='/' index element={<HomePage />} />
+    <Route path='/' element={<HomePage />} />
     <Route path='/register' element={<RegisterPage />} />
     <Route path='/login' element={<LoginPage />} />
-    <Route path='/products' index element={<ProductsPage />} />
+    <Route path='/logout' element={<LogoutPage />} />
+    <Route path='/products' element={<ProductsPage />} />
+    <Route path='/products/:product'  element={<ProductInnerPage />} />
+
     </Route>
 
     <Route element={<AdminLayout />}>
@@ -34,7 +40,7 @@ return (
     <Route path='/admin/products/:product' element={<AdminProductViewPage />} />
     <Route path='/admin/products/:product/edit' element={<AdminProductEditPage />} />
     <Route path='/admin/products/published' element={<AdminProductsPublishedPage />} />
-    <Route path='/admin/products/progres' element={<AdminProductsProgresPage />} />
+    <Route path='/admin/products/draft' element={<AdminProductsDraftPage />} />
 
     </Route>
 
@@ -43,6 +49,7 @@ return (
 
     </Route>
   </Routes>
-</BrowserRouter>
+   </BrowserRouter>
+ </UserContextWrapper>
 );
 }

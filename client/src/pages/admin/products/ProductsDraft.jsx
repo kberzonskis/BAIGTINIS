@@ -1,8 +1,12 @@
 import { AdminPageTitle } from "../../../components/AdminPageTitle";
-export function AdminProductsProgresPage() {
+import { AdminProductsTable } from "../../../components/AdminProductsTable";
+export function AdminProductsDraftPage() {
     return (
         <main>
             <AdminPageTitle title="PRODUCTS  IN PROGRESS" />
+            <AdminProductsTable/>
+        
+
         </main>
     );
 }
