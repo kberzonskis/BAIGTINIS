@@ -1,14 +1,18 @@
 import { AdminPageTitle } from "../../../components/AdminPageTitle";
 import { AdminProductForm } from "../../../components/forms/AdminProductForm";
+import { SERVER_ADDRESS } from "../../../env";
+
 
 export function AdminProductNewPage() {
-    return (
+   return (
         <main>
-            
-             <AdminPageTitle title="NEW PRODUCTS" />
-                  <div className="container">
+            <AdminPageTitle title="New Product yes" />
+
+            <div className="container">
                 <div className="row">
-                   
+                    <AdminProductForm
+                        api={SERVER_ADDRESS + '/api/admin/products'}
+                        method="POST" />
                 </div>
             </div>
         </main>

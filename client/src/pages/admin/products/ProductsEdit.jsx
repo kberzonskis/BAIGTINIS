@@ -1,25 +1,33 @@
+import { useParams } from "react-router";
 import { AdminPageTitle } from "../../../components/AdminPageTitle";
-import { AdminProductForm } from "../../../components/forms/AdminProductForm";
 import { Alert } from "../../../components/Alert";
-export function AdminProductEditPage() {
+import { AdminProductForm } from "../../../components/forms/AdminProductForm";
+import { useContext } from "react";
+import { ProductsContext } from "../../../context/products/ProductsContext";
+import { SERVER_ADDRESS } from "../../../env";
 
-const product = {
-        title: 'one',
-        url: 'first',
-        description: 'Good',
-        status: 'published',
-    };
+export function AdminProductEditPage() {
+    const { getAdminProductByUrlSlug } = useContext(ProductsContext);
+    const { products } = useParams();
+
+    const productsData = getAdminProductByUrlSlug(products);
 
     return (
         <main>
-            
-             <AdminPageTitle title="EDIT PRODUCTS" />
-                  <div className="container">
+            <AdminPageTitle title="Edit products" />
+
+            <div className="container">
                 <div className="row">
-                        <div className="col-12 col-md-9 mt-5">
-                        <Alert text='Norima kategorija nerasta, todel redagavimas yra neimanomas.' />
-                    </div>
-                    <AdminProductForm product = {product}/>
+                    {productsData
+                        ? <AdminProductForm
+                            api={SERVER_ADDRESS + '/api/admin/products/' + productsData.url_slug}
+                            method="PUT"
+                            products={productsData} />
+                        : (
+                            <div className="col-12 col-md-9 mt-5">
+                                <Alert text='Norimas filmas nerasta, todel redagavimas yra neimanomas.' />
+                            </div>
+                        )}
                 </div>
             </div>
         </main>

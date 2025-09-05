@@ -3,7 +3,7 @@ import { Link } from "react-router";
 export function Sidebar() {
 return (
 
-<div className="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary rounded">
+<div className="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary text-bd-success rounded">
 
     <div className="offcanvas-md offcanvas-end" tabIndex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
         <div className="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">

@@ -1,15 +1,22 @@
-import { BrowserRouter, Route, Routes } from 'react-router';
-import { HomePage } from './pages/public/Home';
-import { PublicLayout } from './templates/PublicLayout';
-import { Page404 } from './pages/public/Page404';
+//import { BrowserRouter, Route, Routes } from 'react-router';
+//import { HomePage } from './pages/public/Home';
+//import { PublicLayout } from './templates/PublicLayout';
+//import { Page404 } from './pages/public/Page404';
+//import { FoodsPage } from './pages/public/Foods';
+//import { ProductsPage } from './pages/public/Products';
 import { ProductsViewPage } from './pages/public/Products';
+
+
+import { FoodInnerPage } from './pages/public/FoodInner';
+import { ProductInnerPage } from './pages/public/ProductInner';
+
 import { RegisterPage } from './pages/public/Register';
 import { LoginPage } from './pages/public/Login';
 import { AdminDasboardPage } from './pages/admin/Dashboard';
 import { AdminLayout } from './templates/AdminLayout';
-import { ProductInnerPage } from './pages/public/ProductsInner';
+import { ProductInnerPage } from './pages/public/FoodInner';
 import { AdminProductsAllPage } from './pages/admin/products/ProductsAll';
-import { AdminProductNewPage } from './pages/admin/products/ProductsNew';
+import { AdminProductNewPage } from './pages/admin/products/ProductNew';
 import { AdminProductsViewPage } from './pages/admin/products/ProductsView';
 import { AdminProductEditPage } from './pages/admin/products/ProductsEdit';
 import { AdminProductsPublishedPage } from './pages/admin/products/ProductsPublished';
@@ -17,23 +24,23 @@ import { AdminProductsDraftPage } from './pages/admin/products/ProductsDraft';
 
 import {AdminFoodsAllPage}  from './pages/admin/foods/FoodsAll'; 
 import {AdminFoodsDraftPage} from './pages/admin/foods/FoodsDraft';
-import {AdminFoodsNewPage} from './pages/admin/foods/FoodsNew'; 
+import {AdminFoodNewPage} from './pages/admin/foods/FoodNew'; 
 import {AdminFoodsEditPage} from './pages/admin/foods/FoodsEdit'; 
-import {AdminFoodsViewPage} from './pages/admin/foods/FoodsView'; 
+import {AdminFoodViewPage} from './pages/admin/foods/FoodView'; 
 import {AdminFoodsPublishedPage} from './pages/admin/foods/FoodsPublished'; 
 
-
+import { FoodsContextWrapper } from './context/foods/FoodsContextWrapper';
+import { ProductsContextWrapper} from './context/products/ProductsContextWrapper';
 
 import { LogoutPage } from './pages/public/Logout';
 import { UserContextWrapper } from './context/user/UserContextWrapper';
 
 
-
-
-
 export function App() {
 return (
 <UserContextWrapper>
+  <FoodsContextWrapper>
+  <ProductsContextWrapper>
   <BrowserRouter>
     <Routes>
       <Route element={<PublicLayout />}>
@@ -57,8 +64,8 @@ return (
       <Route path='/admin/products/draft' element={<AdminProductsDraftPage />} />
 
       <Route path='/admin/foods' element={<AdminFoodsAllPage />} />
-      <Route path='/admin/foods/new' element={<AdminFoodsNewPage />} />
-      <Route path='/admin/foods/:foods' element={<AdminFoodsViewPage />} />
+      <Route path='/admin/foods/new' element={<AdminFoodNewPage />} />
+      <Route path='/admin/foods/:foods' element={<AdminFoodViewPage />} />
       <Route path='/admin/foods/:foods/edit' element={<AdminFoodsEditPage />} />
       <Route path='/admin/foods/published' element={<AdminFoodsPublishedPage />} />
       <Route path='/admin/foods/draft' element={<AdminFoodsDraftPage />} /> 
@@ -71,6 +78,8 @@ return (
       </Route>
     </Routes>
   </BrowserRouter>
+</ProductsContextWrapper>
+</FoodsContextWrapper>
 </UserContextWrapper>
 );
 }

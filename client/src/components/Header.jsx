@@ -9,7 +9,7 @@ export function Header() {
 
         <header className="p-4 text-bg-warning rounded-2 ">
         <div className="container">
-            <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom p-4 text-bg-dark rounded-2">
+            <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom p-4 text-bg-secondary rounded-2">
                 <div className="col-md-3 mb-4  mb-md-2">
                     <Link to='/' className="d-inline-flex link-body-emphasis text-decoration-none">
                         <img className="rounded" src={logo} height={32} alt="Logo" />
