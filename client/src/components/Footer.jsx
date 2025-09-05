@@ -11,7 +11,7 @@ export function Footer() {
                         <Link to="/" className="btn btn-outline-light me-2">Home</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/products" className="btn btn-warning me-2">Products</Link>
+                        <Link to="/products" className="btn btn-warning me-2">FOODS</Link>
                     </li>
                 </ul>
             </footer>

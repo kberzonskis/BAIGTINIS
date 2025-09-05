@@ -19,7 +19,7 @@ export function RegisterForm() {
         setUsernameErr('');
         setEmailErr('');
 
-        fetch('http://localhost:5520/api/register', {
+        fetch('http://localhost:5530/api/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

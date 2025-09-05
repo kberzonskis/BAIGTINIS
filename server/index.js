@@ -25,7 +25,7 @@ app.use(helmet());
 app.use(cors({
     credentials: true,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    origin: 'http://localhost:5522',
+    origin: 'http://localhost:5533',
 }));
 
 app.use(cookieParser);
@@ -74,6 +74,6 @@ app.get('*error', (req, res) => {
 //app.post('/api/login', postLogin);
 
 
-app.listen(5520, () => {
-    console.log(`Server running: http://localhost:5520`);
+app.listen(5530, () => {
+    console.log(`Server running: http://localhost:5530`);
 });

@@ -2,7 +2,7 @@ import {ProductCard} from '../../components/ProductCard'
 import { Link } from 'react-router';
 import { PublicPageTitle } from '../../components/PublicPageTitle';
 
-export function ProductsPage() {
+export function ProductsViewPage() {
     const ProductsData = [
         {
             title: 'Drinks',
@@ -21,7 +21,7 @@ export function ProductsPage() {
     
     return (
        <main className='min-page-height'>
-            <PublicPageTitle title='Diversities of coffee' />
+            <PublicPageTitle title='FOODS' />
                 <div className="container px-4" id="featured-3">
                     <div className="row g-4 row-cols-1 row-cols-lg-3">
                         {ProductsData.map(product => <ProductCard key={product.title} product={product} />)}

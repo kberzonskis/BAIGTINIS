@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function AdminProductForm({ product }) {
+export function AdminProductForm() { /*
     const [title, setTitle] = useState(product?.title ?? '');
     const [url, setUrl] = useState(product?.url ?? '');
     const [description, setDescription] = useState(product?.description ?? '');
@@ -27,7 +27,7 @@ export function AdminProductForm({ product }) {
             })
             .catch(console.error);
     }
-
+*/
     return (
         <form onSubmit={handleFormSubmit} className="col-12 col-md-9 col-lg-6 mt-5">
             <div className="mb-3">

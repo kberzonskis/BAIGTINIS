@@ -1,11 +1,11 @@
 import { AdminPageTitle } from "../../../components/AdminPageTitle";
 import { AdminProductForm } from "../../../components/forms/AdminProductForm";
 
-export function AdminProductNewPage() {
+export function AdminFoodsNewPage() {
     return (
         <main>
             
-             <AdminPageTitle title="NEW PRODUCTS" />
+             <AdminPageTitle title="NEW FOODS" />
                   <div className="container">
                 <div className="row">
                    
@@ -14,3 +14,5 @@ export function AdminProductNewPage() {
         </main>
     );
 }
+
+

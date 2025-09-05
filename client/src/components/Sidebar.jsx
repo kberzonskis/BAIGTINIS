@@ -1,58 +1,93 @@
 import { Link } from "react-router";
 
 export function Sidebar() {
-    return (
+return (
 
-        
-        <div className="sidebar border border-right  col-md-2  text-bg-warning ms-3 rounded">
+<div className="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary rounded">
+
+    <div className="offcanvas-md offcanvas-end" tabIndex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+        <div className="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+            <ul className="nav nav-pills flex-column">
+                <li className="nav-item">
+                    <Link className="nav-link d-flex align-items-center gap-2 link-dark link-offset- " to="/admin">
+                    Dashboard
+                    </Link>
+                </li>
+            </ul>
+
+            <ul className="nav nav-pills flex-column">
+
+                <h6
+className="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-3 mb-4 text-uppercase border
+border-dark ">
+<Link className="nav-link d-flex align-items-center gap-2 link-dark link-underline-success" to="/admin/foods">
+<span>FOODS</span>
+</Link>
+</h6>
+<ul className="nav nav-pills flex-column">
+    <li className="nav-item">
+        <Link className="nav-link d-flex align-items-center gap-2 link-dark link-underline-success"
+            to="/admin/foods/new">
+        New Foods
+        </Link>
+    </li>
+    <li className="nav-item">
+        <Link className="nav-link d-flex align-items-center gap-2 link-dark link-offset-2 " to="/admin/foods/all">
+        All foods
+        </Link>
+    </li>
+    <li className="nav-item">
+        <Link className="nav-link d-flex align-items-center gap-2 link-dark link-offset-2 " to="/admin/foods/published">
+        Published foods
+        </Link>
+    </li>
+    <li className="nav-item">
+        <Link className="nav-link d-flex align-items-center gap-2 link-dark link-offset-2 " to="/admin/foods/draft">
+        Draft
+        </Link>
+    </li>
+</ul>
+
+</ul>
 
 
-            <div className="offcanvas-md offcanvas-end" tabIndex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
-                <div className="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
-                    <ul className="nav nav-pills flex-column">
-                        <li className="nav-item">
-                            <Link className="nav-link d-flex align-items-center gap-2 link-dark link-offset- " to="/admin">
-                                Dashboard
-                            </Link>
-                        </li>
-                    </ul>
-                   
-                    <ul className="nav nav-pills flex-column">
-                      
-                         
-                    </ul>
-                    <h6 className="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-3 mb-4 text-uppercase border border-dark   ">
-                        <span>Products</span>
-                    </h6>
-                    <ul className="nav nav-pills flex-column">
-                        <li className="nav-item">
-                            <Link className="nav-link d-flex align-items-center gap-2 link-dark link-underline-success" to="/admin/products/new">
-                                New product
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link d-flex align-items-center gap-2 link-dark link-offset-2 " to="/admin/products/all">
-                                All products
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link d-flex align-items-center gap-2 link-dark link-offset-2 " to="/admin/products/published">
-                                Published products
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link d-flex align-items-center gap-2 link-dark link-offset-2 " to="/admin/products/draft">
-                                Draft
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    );
+                <h6
+className="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-3 mb-4 text-uppercase border
+border-dark ">
+<Link className="nav-link d-flex align-items-center gap-2 link-dark link-underline-success" to="/admin/products">
+<span>Products</span>
+</Link>
+</h6>
+<ul className="nav nav-pills flex-column">
+    <li className="nav-item">
+        <Link className="nav-link d-flex align-items-center gap-2 link-dark link-underline-success"
+            to="/admin/products/new">
+        New product
+        </Link>
+    </li>
+    <li className="nav-item">
+        <Link className="nav-link d-flex align-items-center gap-2 link-dark link-offset-2 " to="/admin/products/all">
+        All products
+        </Link>
+    </li>
+    <li className="nav-item">
+        <Link className="nav-link d-flex align-items-center gap-2 link-dark link-offset-2 "
+            to="/admin/products/published">
+        Published products
+        </Link>
+    </li>
+    <li className="nav-item">
+        <Link className="nav-link d-flex align-items-center gap-2 link-dark link-offset-2 " to="/admin/products/draft">
+        Draft
+        </Link>
+    </li>
+</ul>
+
+</div>
+</div>
+</div>
+);
 }
-
-
 
 /*<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;"> <a href="/"
         class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"> <svg
@@ -107,7 +142,5 @@ export function Sidebar() {
         </ul>
     </div>
 </div>
-
-
 
 */

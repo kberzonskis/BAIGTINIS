@@ -8,37 +8,37 @@ import { PublicPageTitle } from "../components/PublicPageTitle";
 import { UserContext }  from '../context/user/UserContext';
 
 export function AdminLayout() {
-      const { isLoggedIn } = useContext(UserContext);
+
+     const { isLoggedIn } = useContext(UserContext);
+
     return (
         <>
-            <div className="container-fluid object-fit-lg-contain">
-                <Header />
-            </div>
-            <div className="container-fluid min-page-height object-fit-fill">
-               
-               
-                {
-                    isLoggedIn
-                        ? <div className="row">
-                            <Sidebar />
-                            <div className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                                <Outlet />
-                            </div>
-                        </div>
-                        :
-                        <>
-                            <PublicPageTitle title="Login" />
-                            <div className="container">
-                                <div className="row">
-                                    <LoginForm />
-                                </div>
-                            </div>
-                        </>
-                }
-            </div>
-            <div className="container-fluid">
-                <Footer />
-            </div>
-        </>
-    )
+     <div className="container-fluid">
+         <Header />
+     </div>
+     <div className="container-fluid min-page-height">
+         {
+         isLoggedIn
+         ? <div className="row">
+             <Sidebar />
+             <div className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                 <Outlet />
+             </div>
+         </div>
+         :
+         <>
+             <PublicPageTitle title="Login" />
+             <div className="container">
+                 <div className="row">
+                     <LoginForm />
+                 </div>
+             </div>
+         </>
+         }
+     </div>
+     <div className="container-fluid">
+         <Footer />
+     </div>
+ </>
+ )
 }

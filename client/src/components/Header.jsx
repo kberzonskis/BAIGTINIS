@@ -20,7 +20,8 @@ export function Header() {
                         <Link to="/" className="btn btn-outline-light me-2">Home</Link>
                     </li>
                     <li>
-                        <NavLink to='/products' className="btn btn-warning me-2">Products</NavLink>
+                        <NavLink to='/foods' className="btn btn-warning me-2">FOODS</NavLink>
+                        <NavLink to='/products' className="btn btn-warning me-2">PRODUCTS</NavLink>
                     </li>
                 </ul>
                

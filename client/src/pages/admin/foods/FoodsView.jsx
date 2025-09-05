@@ -3,7 +3,7 @@ import { AdminFoodsTable } from "../../../components/AdminFoodsTable";
 import { Alert } from "../../../components/Alert";
 
 
-export function AdminProductsViewPage() {
+export function AdminFoodsViewPage() {
    
    const product = {
         title: 'one',
@@ -19,7 +19,7 @@ export function AdminProductsViewPage() {
    
     return (
         <main>
-             <AdminPageTitle title="View Products" />
+             <AdminPageTitle title="View FOODS" />
              <div className="container">
                 <div className="row">
                     <div className="col-12 col-md-9 mt-5">

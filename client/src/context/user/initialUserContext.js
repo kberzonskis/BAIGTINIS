@@ -1,5 +1,5 @@
 export const initialUserContext = {
-    isLoggedIn: false,
+    isLoggedIn: true,
     role: 'public',
     email: '',
     userId: 0,
