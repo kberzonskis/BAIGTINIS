@@ -34,13 +34,6 @@ import { FoodsContextWrapper } from './context/foods/FoodsContextWrapper';
 import { ProductsContextWrapper} from './context/products/ProductsContextWrapper';
 
 
-
- 
-
-
-
-
-
 export function App() {
 return (
 <UserContextWrapper>
