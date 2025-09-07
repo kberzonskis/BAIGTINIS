@@ -55,7 +55,7 @@ export function FoodsContextWrapper(props) {
 
     function getAdminFoodById(id) {
         return adminFoods.find(food => food.id === id);
-    
+    }
 
     useEffect(updatePublicFoods, []);
 
@@ -77,6 +77,7 @@ export function FoodsContextWrapper(props) {
         updateAdminFoods,
         deletePublicFood,
         deleteAdminFood,
+
     };
 
     return (
@@ -84,4 +85,4 @@ export function FoodsContextWrapper(props) {
             {props.children}
         </FoodsContext.Provider>
     )
-}} 
+}

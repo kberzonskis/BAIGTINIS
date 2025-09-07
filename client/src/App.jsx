@@ -37,8 +37,9 @@ import { ProductsContextWrapper} from './context/products/ProductsContextWrapper
 export function App() {
 return (
 <UserContextWrapper>
-  <FoodsContextWrapper>
+   <FoodsContextWrapper>
   <ProductsContextWrapper>
+   
   <BrowserRouter>
     <Routes>
 
@@ -79,8 +80,9 @@ return (
       </Route>
     </Routes>
   </BrowserRouter>
+
 </ProductsContextWrapper>
-</FoodsContextWrapper>
+  </FoodsContextWrapper>
 </UserContextWrapper>
 );
 }

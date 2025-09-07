@@ -10,10 +10,10 @@ import { Alert } from "../../../components/Alert";
 
 export function AdminFoodsEditPage() {
 
-    const { getAdminFoodsByUrlSlug } = useContext(FoodsContext);
-    const { foods } = useParams();
+    const { getAdminFoodByUrlSlug } = useContext(FoodsContext);
+    const { food } = useParams();
 
-    const foodData = getAdminfoodsByUrlSlug(food);
+    const foodData = getAdminFoodByUrlSlug(food);
 
     return (
         <main>

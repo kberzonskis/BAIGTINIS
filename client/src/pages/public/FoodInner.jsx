@@ -26,7 +26,7 @@ export function FoodInnerPage() {
         );
     }
 
-    const productsData = publicProducts.filter(m => m.food_id === foodData.id);
+    const productsData = publicProducts.filter(p => p.food_id === foodData.id);
 
     return (
         <main className='min-page-height'>

@@ -12,7 +12,7 @@ export function AdminFoodViewPage() {
     const { adminProducts } = useContext(ProductsContext);
     const { food } = useParams();
 
-    const foodData = getAdminFoodsByUrlSlug(food);
+    const foodData = getAdminFoodByUrlSlug(food);
 
     return (
         <main>
@@ -26,7 +26,7 @@ export function AdminFoodViewPage() {
                                   ? (
                                     <>
                                         <AdminFoodViewTable data={foodData} />
-                                      <AdminProductsTable products={adminProducts.filter(m => m.food_id === foodData.id)} /> 
+                                      <AdminProductsTable products={adminProducts.filter(p => p.food_id === foodData.id)} /> 
                                     </>
                                 )
                                 : <Alert text='Norima kategorija nerasta, todel jos perziureti yra neimanomas.' />

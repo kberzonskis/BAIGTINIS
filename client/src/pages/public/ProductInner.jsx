@@ -30,7 +30,7 @@ export function ProductInnerPage() {
         );
     }
 
-    const foodData = publicFoods.find(c => c.id === productData.food_id);
+    const foodData = publicFoods.find(f => f.id === productData.food_id);
 
     if (!foodData) {
         return (

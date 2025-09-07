@@ -7,7 +7,7 @@ export function AdminFoodsTableRow({ food }) {
     const { deletePublicFood, deleteAdminFood } = useContext(FoodsContext);
 
     function handleDeleteClick() {
-        fetch(SERVER_ADDRESS + '/api/admin/foods/' + foods.url_slug, {
+        fetch(SERVER_ADDRESS + '/api/admin/foods/' + food.url_slug, {
             method: 'DELETE',
             credentials: 'include',
         })
@@ -24,7 +24,7 @@ export function AdminFoodsTableRow({ food }) {
     return (
         <tr>
             <th scope="row">{food.id}</th>
-            <td><Link to={"/admin/foods/" + food.url_slug}>{foods.title}</Link></td>
+            <td><Link to={"/admin/foods/" + food.url_slug}>{food.title}</Link></td>
             <td>{food.url_slug}</td>
             <td>{food.description}</td>
             <td>{food.productsCount}</td>
