@@ -1,7 +1,7 @@
 import { PublicPageTitle } from '../../components/PublicPageTitle';
 import { ProductCard } from '../../components/ProductCard';
 import { useContext } from 'react';
-import { FoodsContext } from '../../context/Foods/foods/Context';
+import { FoodsContext } from '../../context/foods/FoodsContext';
 import { useParams } from 'react-router';
 import { ProductsContext } from '../../context/products/ProductsContext';
 

@@ -1,8 +1,7 @@
-
 import { connection } from "../../../db.js";
 import { IsValid } from "../../../lib/IsValid.js";
 
-export async function putAdminProducts(req, res) {
+export async function putAdminFoods(req, res) {
     const [errParams, msgParams] = IsValid.fields(req.params, {
         original_url: 'nonEmptyString',
     });
@@ -17,14 +16,9 @@ export async function putAdminProducts(req, res) {
     const [err, msg] = IsValid.fields(req.body, {
         title: 'nonEmptyString',
         url: 'nonEmptyString',
-        duration: 'numberInteger',
-        food: 'numberInteger',
         status: 'nonEmptyString',
-       
     }, {
-        img: 'nonEmptyString',
         description: 'nonEmptyString',
-       
     });
 
     if (err) {
@@ -35,31 +29,16 @@ export async function putAdminProducts(req, res) {
     }
 
     const { original_url } = req.params;
-    const { title, url, status,  } = req.body;
-    let { food, description, img } = req.body;
-
-    if (food === 0) {
-        food = null;
-    }
-    if (!description) {
-        description = '';
-    }  
-    
-    if (!img) {
-        img = '';
-    }
-
-    const imgPath = img.split('/').at(-1);
+    const { title, url, status, description } = req.body;
 
     try {
         const sql = `
-            UPDATE products
-            SET img = ?, title = ?, url_slug = ?, food_id = ?, status_id = (
+            UPDATE foods
+            SET title = ?, url_slug = ?, description = ?, status_id = (
                 SELECT id FROM general_status WHERE name = ?
-            ),  description = ?,
+            )
             WHERE url_slug = ?`;
-        const [response] = await connection.execute(sql,
-            [imgPath, title, url, food, status, description, original_url]);
+        const [response] = await connection.execute(sql, [title, url, description, status, original_url]);
 
         if (response.affectedRows !== 1) {
             return res.status(500).json({
@@ -77,6 +56,6 @@ export async function putAdminProducts(req, res) {
 
     return res.status(200).json({
         status: 'success',
-        msg: 'Sekmingai atnaujintas produktas',
+        msg: 'Sekmingai atnaujinta "FOODS" kategorija',
     });
 }

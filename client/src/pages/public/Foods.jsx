@@ -11,13 +11,13 @@ export function FoodsPage() {
         {
             title: 'Action',
             description: 'Lorem ipsum dolor sit amet.',
-            moviesCount: 7,
+            productsCount: 7,
             urlSlug: 'action',
         },
         {
             title: 'Crime',
             description: 'Very lorem ipsum very dolor sit amet.',
-            moviesCount: 66,
+            productsCount: 66,
             urlSlug: 'crime',
         },
     ];

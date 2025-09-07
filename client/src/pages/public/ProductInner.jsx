@@ -2,10 +2,10 @@ import { useParams } from 'react-router';
 import { useContext } from 'react';
 import { ProductsContext } from '../../context/products/ProductsContext';
 import defaultImgUrl from '../../assets/default.png';
-import notFoundImgUrl from '../../assets/not-found.webp';
+import notFoundImgUrl from '../../img/not-found.webp';
 import { FoodsContext } from '../../context/foods/FoodsContext';
 
-import { SERVER_ADDRESS } from '../../env';
+import { SERVER_ADDRESS } from '../../env';``
 
 export function ProductInnerPage() {
     const { product } = useParams();

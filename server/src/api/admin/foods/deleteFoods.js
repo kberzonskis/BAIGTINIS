@@ -1,7 +1,7 @@
 import { connection } from "../../../db.js";
 import { IsValid } from "../../../lib/IsValid.js";
 
-export async function deleteAdminProducts(req, res) {
+export async function deleteAdminFoods(req, res) {
     const [err, msg] = IsValid.fields(req.params, {
         url: 'nonEmptyString',
     });
@@ -16,13 +16,13 @@ export async function deleteAdminProducts(req, res) {
     const { url } = req.params;
 
     try {
-        const sql = `DELETE FROM products WHERE url_slug = ?;`;
+        const sql = `DELETE FROM foods WHERE url_slug = ?;`;
         const [response] = await connection.execute(sql, [url]);
 
         if (response.affectedRows === 0) {
             return res.status(400).json({
                 status: 'error',
-                msg: 'Toks produktas neegzistuoja',
+                msg: 'Tokia "foods" kortele neegzistuoja',
             });
         }
     } catch (error) {
@@ -35,6 +35,11 @@ export async function deleteAdminProducts(req, res) {
 
     return res.status(200).json({
         status: 'success',
-        msg: 'produktas istrintas sekmingai',
+        msg: 'Foods kategorija istrinta sekmingai',
     });
 }
+
+
+
+
+

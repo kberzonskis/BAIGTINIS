@@ -13,8 +13,7 @@ export function AdminProductsTable({ products }) {
                                     <th scope="col">Thumbnail</th>
                                     <th scope="col">Title</th>
                                     <th scope="col">Description</th>
-                                    <th scope="col">Duration</th>
-                                    <th scope="col">Category</th>
+                                    <th scope="col">Food</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Actions</th>
                                 </tr>

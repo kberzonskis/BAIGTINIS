@@ -1,18 +1,13 @@
 import { connection } from "../../../db.js";
 import { IsValid } from "../../../lib/IsValid.js";
 
-export async function postAdminProducts(req, res) {
+export async function postAdminFoods(req, res) {
     const [err, msg] = IsValid.fields(req.body, {
         title: 'nonEmptyString',
         url: 'url',
-        duration: 'numberInteger',
-        food: 'numberInteger',
         status: 'nonEmptyString',
-        rating: 'numberFloat',
     }, {
-        img: 'nonEmptyString',
         description: 'nonEmptyString',
-        releaseDate: 'nonEmptyString',
     });
 
     if (err) {
@@ -22,31 +17,16 @@ export async function postAdminProducts(req, res) {
         });
     }
 
-    const { title, url, status,  } = req.body;
-    let { food, description, img } = req.body;
-
-    if (food === 0) {
-        food = null;
-    }
-    if (!description) {
-        description = '';
-    }
-     if (!img) {
-        img = '';
-    }
-
-    const imgPath = img.split('/').at(-1);
+    const { title, url, status, description } = req.body;
 
     try {
-        const sql = `SELECT * FROM products WHERE url_slug = ?;`;
-        const [response] = await connection.execute(sql, [url]);
+        const sql = `SELECT * FROM foods WHERE title = ? OR url_slug = ?;`;
+        const [response] = await connection.execute(sql, [title, url]);
 
         if (response.length > 0) {
             return res.status(400).json({
                 status: 'error',
-                msg: {
-                    url: 'Tokia produkto nuoroda jau uzimta',
-                },
+                msg: 'Tokia kategorija jau egzistuoja',
             });
         }
     } catch (error) {
@@ -59,14 +39,11 @@ export async function postAdminProducts(req, res) {
 
     try {
         const sql = `
-            INSERT INTO products
-                (img, title, url_slug, food_id, status_id, description,)
-            VALUES (?, ?, ?, ?,
+            INSERT INTO foods (title, url_slug, status_id, description)
+            VALUES (?, ?, 
                 (SELECT id FROM general_status WHERE name = ?),
-                ?, ?, ?, ?);`;
-        const [response] = await connection.execute(sql,
-            [imgPath, title, url, food, status, description]
-        );
+                ?);`;
+        const [response] = await connection.execute(sql, [title, url, status, description]);
 
         if (response.affectedRows !== 1) {
             return res.status(500).json({
@@ -84,6 +61,6 @@ export async function postAdminProducts(req, res) {
 
     return res.status(201).json({
         status: 'success',
-        msg: 'Sekmingai sukurtas produktas',
+        msg: 'Sekmingai sukurta "foods" kategorija',
     });
 }

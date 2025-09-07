@@ -3,11 +3,10 @@ import { connection } from "../../../db.js";
 export async function getAdminProducts(req, res) {
     try {
         const sql = `
-            SELECT *, 0 AS productCount
+            SELECT products.*, general_status.name AS status_name
             FROM products
-            WHERE status_id = (
-                SELECT id FROM general_status WHERE name = "published"
-            );`;
+            INNER JOIN general_status
+                ON products.status_id = general_status.id;`;
         const [products] = await connection.execute(sql);
 
         return res.json({

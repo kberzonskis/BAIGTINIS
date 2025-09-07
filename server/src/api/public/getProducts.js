@@ -3,9 +3,13 @@ import { connection } from "../../db.js";
 export async function getPublicProducts(req, res) {
     try {
         const sql = `
-            SELECT *, 0 AS productsCount
+            SELECT products.*
             FROM products
-            WHERE status_id = (
+            INNER JOIN foods
+                ON products.food_id = foods.id
+            WHERE products.status_id = (
+                SELECT id FROM general_status WHERE name = "published"
+            ) AND foods.status_id = (
                 SELECT id FROM general_status WHERE name = "published"
             );`;
         const [products] = await connection.execute(sql);

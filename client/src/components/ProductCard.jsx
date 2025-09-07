@@ -5,7 +5,7 @@ import defaultImgUrl from '../assets/default.png';
 import { SERVER_ADDRESS } from '../env';
 import { Link } from 'react-router';
 
-export function productCard({ product }) {
+export function ProductCard({ product }) {
     const { publicFoods } = useContext(FoodsContext);
     const foodData = publicFoods.find(c => c.id === product.food_id);
 

@@ -13,7 +13,7 @@ export function AdminFoodsTable({ list }) {
                                     <th scope="col">Title</th>
                                     <th scope="col">Url</th>
                                     <th scope="col">Description</th>
-                                    <th scope="col">Movies count</th>
+                                    <th scope="col">Product count</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Actions</th>
                                 </tr>

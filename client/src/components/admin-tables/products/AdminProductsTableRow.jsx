@@ -7,7 +7,7 @@ import { ProductsContext } from '../../../context/products/ProductsContext';
 
 export function AdminProductsTableRow({ product }) {
     const { adminFoods } = useContext(FoodsContext);
-    const { deletePublicMovie, deleteAdminMovie } = useContext(ProductsContext);
+    const { deletePublicProduct, deleteAdminProduct } = useContext(ProductsContext);
 
     if (!adminFoods.length) {
         return;
@@ -23,8 +23,8 @@ export function AdminProductsTableRow({ product }) {
             .then(res => res.json())
             .then(data => {
                 if (data.status === 'success') {
-                    deletePublicMovie(product.url_slug);
-                    deleteAdminMovie(product.url_slug);
+                    deletePublicProduct(product.url_slug);
+                    deleteAdminProduct(product.url_slug);
                 }
             })
             .catch(console.error);
