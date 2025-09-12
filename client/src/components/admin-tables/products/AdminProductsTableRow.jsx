@@ -44,7 +44,7 @@ export function AdminProductsTableRow({ product }) {
             <td>
                 {
                     product.food_id
-                        ? adminFoods.find(c => c.id === product.food_id).title
+                        ? adminFoods.find(f => f.id === product.food_id).title
                         : <span className="badge text-bg-warning">Not selected</span>
                 }
             </td>

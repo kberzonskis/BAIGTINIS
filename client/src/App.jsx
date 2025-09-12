@@ -14,12 +14,12 @@ import { LoginPage } from './pages/public/Login';
 import { AdminDasboardPage } from './pages/admin/Dashboard';
 import { AdminLayout } from './templates/AdminLayout';
 
-import {AdminFoodsAllPage}  from './pages/admin/foods/FoodsAll'; 
+import { AdminFoodsAllPage } from './pages/admin/Foods/FoodsAll';
 import {AdminFoodNewPage} from './pages/admin/foods/FoodNew'; 
 import {AdminFoodViewPage} from './pages/admin/foods/FoodView';
 import {AdminFoodsEditPage} from './pages/admin/foods/FoodsEdit'; 
 import {AdminFoodsPublishedPage} from './pages/admin/foods/FoodsPublished'; 
-import {AdminFoodsDraftPage} from './pages/admin/foods/FoodsDraft';
+import { AdminFoodsDraftPage } from './pages/admin/Foods/FoodsDraft';
 
 import { AdminProductsAllPage } from './pages/admin/products/ProductsAll';
 import { AdminProductNewPage } from './pages/admin/products/ProductNew';

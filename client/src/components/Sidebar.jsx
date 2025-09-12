@@ -32,7 +32,7 @@ border-dark ">
         </Link>
     </li>
     <li className="nav-item">
-        <Link className="nav-link d-flex align-items-center gap-2 link-dark link-offset-2 " to="/admin/foods/all">
+        <Link className="nav-link d-flex align-items-center gap-2 link-dark link-offset-2 " to="/admin/foods">
         All foods
         </Link>
     </li>
@@ -66,7 +66,7 @@ border-dark ">
         </Link>
     </li>
     <li className="nav-item">
-        <Link className="nav-link d-flex align-items-center gap-2 link-dark link-offset-2 " to="/admin/products/all">
+        <Link className="nav-link d-flex align-items-center gap-2 link-dark link-offset-2 " to="/admin/products">
         All products
         </Link>
     </li>

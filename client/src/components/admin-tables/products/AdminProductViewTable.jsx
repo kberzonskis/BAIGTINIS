@@ -44,14 +44,7 @@ export function AdminViewProductTable({ productData }) {
                             : <span className="badge text-bg-warning">Not selected</span>
                     }</td>
                 </tr>
-                <tr className="mb-3">
-                    <td>Release date</td>
-                    <td>{productData.release_date}</td>
-                </tr>
-                <tr className="mb-3">
-                    <td>Rating</td>
-                    <td>{formatRating(productData.rating)}</td>
-                </tr>
+               
                 <tr className="mb-3">
                     <td>Status</td>
                     <td>

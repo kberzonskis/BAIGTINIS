@@ -7,4 +7,4 @@ export async function isAdmin(req, res, next) {
     }
 
     return next();
-}
+} 

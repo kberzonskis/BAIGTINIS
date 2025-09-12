@@ -2,7 +2,7 @@ import { connection } from "../../../db.js";
 import { IsValid } from "../../../lib/IsValid.js";
 
 export async function deleteAdminFoods(req, res) {
-    const [err, msg] = IsValid.fields(req.params, {
+  /*  const [err, msg] = IsValid.fields(req.params, {
         url: 'nonEmptyString',
     });
 
@@ -12,7 +12,7 @@ export async function deleteAdminFoods(req, res) {
             msg: msg,
         });
     }
-
+*/
     const { url } = req.params;
 
     try {

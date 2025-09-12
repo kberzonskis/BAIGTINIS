@@ -2,7 +2,7 @@ import { connection } from "../../../db.js";
 import { IsValid } from "../../../lib/IsValid.js";
 
 export async function putAdminFoods(req, res) {
-    const [errParams, msgParams] = IsValid.fields(req.params, {
+   /* const [errParams, msgParams] = IsValid.fields(req.params, {
         original_url: 'nonEmptyString',
     });
 
@@ -27,7 +27,7 @@ export async function putAdminFoods(req, res) {
             msg: msg,
         });
     }
-
+*/
     const { original_url } = req.params;
     const { title, url, status, description } = req.body;
 

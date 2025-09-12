@@ -37,19 +37,19 @@ export function ProductsContextWrapper(props) {
             .catch(console.error);
     }
 
-    function deletePublicProducts(urlSlug) {
+    function deletePublicProduct(urlSlug) {
         setPublicProducts(currentList => currentList.filter(products => products.url_slug !== urlSlug));
     }
 
-    function deleteAdminProducts(urlSlug) {
+    function deleteAdminProduct(urlSlug) {
         setAdminProducts(currentList => currentList.filter(products => products.url_slug !== urlSlug));
     }
 
-    function getPublicProductsByUrlSlug(urlSlug) {
+    function getPublicProductByUrlSlug(urlSlug) {
         return publicProducts.find(products => products.url_slug === urlSlug);
     }
 
-    function getAdminProductsByUrlSlug(urlSlug) {
+    function getAdminProductByUrlSlug(urlSlug) {
         return adminProducts.find(products => products.url_slug === urlSlug);
     }
 
@@ -66,12 +66,12 @@ export function ProductsContextWrapper(props) {
     const values = {
         publicProducts,
         adminProducts,
-        getPublicProductsByUrlSlug,
-        getAdminProductsByUrlSlug,
+        getPublicProductByUrlSlug,
+        getAdminProductByUrlSlug,
         updatePublicProducts,
         updateAdminProducts,
-        deletePublicProducts,
-        deleteAdminProducts,
+        deletePublicProduct,
+        deleteAdminProduct,
     };
 
     return (

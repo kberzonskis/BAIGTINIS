@@ -27,7 +27,7 @@ export function AdminFoodsTableRow({ food }) {
             <td><Link to={"/admin/foods/" + food.url_slug}>{food.title}</Link></td>
             <td>{food.url_slug}</td>
             <td>{food.description}</td>
-            <td>{food.productsCount}</td>
+            
             <td>
                 {
                     food.status_name === 'published'

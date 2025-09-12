@@ -58,17 +58,17 @@ app.get('/api/products', getPublicProducts);
 
 app.get('/api/login', isAdmin, getLogin);
 
-app.get('/api/admin/foods', isAdmin, getAdminFoods);
-app.post('/api/admin/foods', isAdmin, postAdminFoods);
-app.put('/api/admin/foods/:original_url', isAdmin, putAdminFoods);
-app.delete('/api/admin/foods/:url', isAdmin, deleteAdminFoods);
+app.get('/api/admin/foods',  getAdminFoods);
+app.post('/api/admin/foods', postAdminFoods);
+app.put('/api/admin/foods/:original_url', putAdminFoods);
+app.delete('/api/admin/foods/:url',  deleteAdminFoods);
 
-app.get('/api/admin/products', isAdmin, getAdminProducts);
-app.post('/api/admin/products', isAdmin, postAdminProducts);
-app.put('/api/admin/products/:original_url', isAdmin, putAdminProducts);
-app.delete('/api/admi/products/:url', isAdmin, deleteAdminProducts);
+app.get('/api/admin/products',  getAdminProducts);
+app.post('/api/admin/products',  postAdminProducts);
+app.put('/api/admin/products/:original_url',  putAdminProducts);
+app.delete('/api/admi/products/:url',  deleteAdminProducts);
 
-app.post('/api/admin/upload-image', isAdmin, uploadProductThumbnailImage.single('img'), postImageUpload);
+app.post('/api/admin/upload-image', uploadProductThumbnailImage.single('img'), postImageUpload);
 app.use((err, req, res, next) => {
     if (err.code === 'LIMIT_FILE_SIZE') {
         return res.status(400).json({

@@ -3,7 +3,7 @@ import { connection } from "../../../db.js";
 import { IsValid } from "../../../lib/IsValid.js";
 
 export async function putAdminProducts(req, res) {
-    const [errParams, msgParams] = IsValid.fields(req.params, {
+  /*  const [errParams, msgParams] = IsValid.fields(req.params, {
         original_url: 'nonEmptyString',
     });
 
@@ -33,10 +33,11 @@ export async function putAdminProducts(req, res) {
             msg: msg,
         });
     }
-
+*/
     const { original_url } = req.params;
-    const { title, url, status,  } = req.body;
+    const { title, url, status, duration, rating  } = req.body;
     let { food, description, img } = req.body;
+
 
     if (food === 0) {
         food = null;
@@ -45,6 +46,10 @@ export async function putAdminProducts(req, res) {
         description = '';
     }  
     
+  if (!rating) {
+        rating = 0;
+  }
+
     if (!img) {
         img = '';
     }
@@ -56,10 +61,12 @@ export async function putAdminProducts(req, res) {
             UPDATE products
             SET img = ?, title = ?, url_slug = ?, food_id = ?, status_id = (
                 SELECT id FROM general_status WHERE name = ?
-            ),  description = ?,
-            WHERE url_slug = ?`;
+            ),  description = ?, duration_in_minutes = ?, rating = ?
+              WHERE url_slug = ?`; 
+           
+
         const [response] = await connection.execute(sql,
-            [imgPath, title, url, food, status, description, original_url]);
+            [imgPath, title, url, food, status, description, duration, rating,  original_url]);
 
         if (response.affectedRows !== 1) {
             return res.status(500).json({

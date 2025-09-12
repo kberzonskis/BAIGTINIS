@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router';
-import defaultImg from '../../img/products.webp';
+import defaultImg from '../../assets/default.png';
 import { FoodsContext } from '../../context/foods/FoodsContext';
 import { SERVER_ADDRESS } from '../../env.js';
 import { ProductsContext } from '../../context/products/ProductsContext.js';
@@ -167,10 +167,10 @@ export function AdminProductForm({ api, method, product }) {
                     </div>
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="food" className="form-label">FOOD</label>
+                    <label htmlFor="food" className="form-label">food</label>
                     <select onChange={e => setFoodId(e.target.value)} value={foodId} className="form-select" id="food">
                         <option value={0}>-- choose</option>
-                        {adminFoods.map(cat => <option key={cat.id} value={cat.id}>{cat.title}</option>)}
+                        {adminFoods.map(foo => <option key={foo.id} value={foo.id}>{foo.title}</option>)}
                     </select>
                 </div>
                 <div className="mb-3">

@@ -7,7 +7,7 @@ import { Link } from 'react-router';
 
 export function ProductCard({ product }) {
     const { publicFoods } = useContext(FoodsContext);
-    const foodData = publicFoods.find(c => c.id === product.food_id);
+    const foodData = publicFoods.find(f => f.id === product.food_id);
 
     if (!foodData) {
         return;

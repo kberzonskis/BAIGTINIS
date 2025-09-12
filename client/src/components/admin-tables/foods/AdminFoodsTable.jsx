@@ -13,13 +13,12 @@ export function AdminFoodsTable({ list }) {
                                     <th scope="col">Title</th>
                                     <th scope="col">Url</th>
                                     <th scope="col">Description</th>
-                                    <th scope="col">Product count</th>
-                                    <th scope="col">Status</th>
+                                     <th scope="col">Status</th>
                                     <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {list.map(item => <AdminFoodsTableRow key={item.id} foods={item} />)}
+                                {list.map(item =><AdminFoodsTableRow key={item.id} food={item} />)}
                             </tbody>
                         </table>
                     </div>

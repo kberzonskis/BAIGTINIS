@@ -8,21 +8,21 @@ import { SERVER_ADDRESS } from "../../../env";
 
 export function AdminProductEditPage() {
     const { getAdminProductByUrlSlug } = useContext(ProductsContext);
-    const { products } = useParams();
+    const { product } = useParams();
 
-    const productsData = getAdminProductByUrlSlug(products);
+    const productData = getAdminProductByUrlSlug(product);
 
     return (
         <main>
-            <AdminPageTitle title="Edit products" />
+            <AdminPageTitle title="Edit product" />
 
             <div className="container">
                 <div className="row">
-                    {productsData
+                    {productData
                         ? <AdminProductForm
-                            api={SERVER_ADDRESS + '/api/admin/products/' + productsData.url_slug}
+                            api={SERVER_ADDRESS + '/api/admin/products/' + productData.url_slug}
                             method="PUT"
-                            products={productsData} />
+                            product={productData} />
                         : (
                             <div className="col-12 col-md-9 mt-5">
                                 <Alert text='Norimas filmas nerasta, todel redagavimas yra neimanomas.' />

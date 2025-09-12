@@ -10,7 +10,7 @@ export function FoodInnerPage() {
     const { publicProducts } = useContext(ProductsContext);
     const { food } = useParams();
 
-    const foodData = publicFoods.find(c => c.url_slug === food);
+    const foodData = publicFoods.find(f => f.url_slug === food);
 
     if (!foodData) {
         return (

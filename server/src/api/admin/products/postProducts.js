@@ -2,7 +2,7 @@ import { connection } from "../../../db.js";
 import { IsValid } from "../../../lib/IsValid.js";
 
 export async function postAdminProducts(req, res) {
-    const [err, msg] = IsValid.fields(req.body, {
+  /* const [err, msg] = IsValid.fields(req.body, {
         title: 'nonEmptyString',
         url: 'url',
         duration: 'numberInteger',
@@ -21,9 +21,9 @@ export async function postAdminProducts(req, res) {
             msg: msg,
         });
     }
-
-    const { title, url, status,  } = req.body;
-    let { food, description, img } = req.body;
+*/
+    const { title, url, status, duration, rating } = req.body;
+    let { food, description, releaseDate, img } = req.body;
 
     if (food === 0) {
         food = null;
@@ -31,7 +31,13 @@ export async function postAdminProducts(req, res) {
     if (!description) {
         description = '';
     }
-     if (!img) {
+    if (!releaseDate) {
+        releaseDate = null;
+    }
+    if (!rating) {
+        rating = 0;
+    }
+    if (!img) {
         img = '';
     }
 
@@ -45,7 +51,7 @@ export async function postAdminProducts(req, res) {
             return res.status(400).json({
                 status: 'error',
                 msg: {
-                    url: 'Tokia produkto nuoroda jau uzimta',
+                    url: 'Tokia  nuoroda jau uzimta',
                 },
             });
         }
@@ -60,12 +66,12 @@ export async function postAdminProducts(req, res) {
     try {
         const sql = `
             INSERT INTO products
-                (img, title, url_slug, food_id, status_id, description,)
+                (img, title, url_slug, food_id, status_id, description, duration_in_minutes, rating)
             VALUES (?, ?, ?, ?,
                 (SELECT id FROM general_status WHERE name = ?),
-                ?, ?, ?, ?);`;
+                 ?, ?, ?);`;
         const [response] = await connection.execute(sql,
-            [imgPath, title, url, food, status, description]
+            [imgPath, title, url, food, status, description,  duration, rating]
         );
 
         if (response.affectedRows !== 1) {

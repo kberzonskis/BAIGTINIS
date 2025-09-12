@@ -1,12 +1,12 @@
 export const initialProductsContext = {
     publicProducts: [],
     adminProducts: [],
-     getPublicProductsByUrlSlug: () => { },
-    getAdminProductsByUrlSlug: () => { },
+    getPublicProductsByUrlSlug: () => { },
+    getAdminProductByUrlSlug: () => { },
     updatePublicProducts: () => { },
     updateAdminProducts: () => { },
-    deletePublicProducts: () => { },
-    deleteAdminProducts: () => { },
+    deletePublicProduct: () => { },
+    deleteAdminProduct: () => { },
 
 };
 
